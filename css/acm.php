@@ -11,8 +11,8 @@
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
 <!-- Compiled and minified JavaScript -->
+<script src="js/jquery.min.js"></script>
 <script src="js/materialize.min.js"></script>
-
 
 
 <style>
@@ -71,6 +71,11 @@
 
 	.acm-body {
 		background-color: rgb(1, 130, 172);
+	}
+
+	.iframe-container {
+		margin: 20px auto;
+
 	}
 
 </style>
