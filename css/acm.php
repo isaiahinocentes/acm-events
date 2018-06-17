@@ -13,8 +13,8 @@
 <!-- Compiled and minified JavaScript -->
 <script src="js/jquery.min.js"></script>
 <script src="js/materialize.min.js"></script>
-
-
+<script src="js/axios.min.js"></script>
+<script src="js/qs.min.js"></script>
 <style>
 	.acm-color{
 		color: rgb(1, 130, 172);

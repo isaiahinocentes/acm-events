@@ -191,8 +191,8 @@
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="ne-date"type="text" class="datepicker">
-										<label for="ne-date">Event date</label>
+										<input id="ne-event-date"type="text" class="datepicker">
+										<label for="ne-event-date">Event date</label>
 									</div>
 								</div>
 								<div class="row">
@@ -213,7 +213,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn acm-btn">👌 Confirm</a>
+					<a id="ne-submit" href="#!" class="modal-close waves-effect waves-green btn acm-btn">👌 Confirm</a>
 				</div>
 			</div>
 
@@ -226,7 +226,9 @@
 				$('.tabs').tabs();
 				$('select').formSelect();
 				$('.modal').modal();
-				$('.datepicker').datepicker();
+				$('.datepicker').datepicker({
+					format: 'mm/dd/yyyy'
+				});
 			}
 
 			$(document).ready(function() {
@@ -236,9 +238,32 @@
 
 			/**
 			|--------------------------------------------------
-			| 😎New proposal
+			| 😎 New proposal submit listener 👂
 			|--------------------------------------------------
 			*/
+			$('#ne-submit').on('click', function(e) {
+				
+				// form values
+				var
+					ne_eventTitle = $('#ne-event-title').val(),
+					ne_eventDescription = $('#ne-event-description').val(),
+					ne_eventDate = $('#ne-event-date').val(),
+					ne_eventVenue = $('#ne-event-venue').val(),
+					ne_eventGdrive = $('#ne-event-gdrive').val();
+
+				axios
+					.post('api/event.php', Qs.stringify({
+						title: ne_eventTitle,
+						description: ne_eventDescription,
+						date: ne_eventDate,
+						venue: ne_eventVenue,
+						gdrive_link: ne_eventGdrive
+					}))
+					.then(function (resp) {
+						console.log(resp.data);
+					});
+			});
+			
 
 		</script>
 	</body>
