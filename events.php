@@ -25,8 +25,11 @@
 				margin-right: 10px;
 				display: inline-block;
 			}
+			.modal-content {
+				padding-bottom: 0 !important;
+			}
 			.new-proposal-content {
-				margin: 20px 0;
+				margin: 20px 0 0 0;
 			}
 		</style>
 	</head>
@@ -165,16 +168,48 @@
 
 			<!--
 			===========================================
-				ARCHIEVED
+				NEW PROPOSAL MODAL
 			===========================================
 			-->
 			<div id="new-proposal" class="modal">
 				<div class="modal-content">
 					<h4>😎 Create New Proposal</h4>
 					<div class="new-proposal-content">
-
-
-
+						<div class="row">
+							<form class="col s12">
+								<div class="row">
+									<div class="input-field col s12">
+										<input placeholder="Enter event title" id="ne-event-title" type="text" class="validate">
+										<label for="first_name">Event title</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea placeholder="Enter event description" id="ne-event-description" type="text" class="materialize-textarea"></textarea>
+										<label for="event-description">Event Description</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="ne-date"type="text" class="datepicker">
+										<label for="ne-date">Event date</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input placeholder="Enter event venue" id="ne-event-venue" type="text" class="validate">
+										<label for="event-venue">Venue</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input placeholder="Enter Google Drive link" id="ne-event-gdrive" type="text" class="validate">
+										<label for="event-grive">Google Drive Documents</label>
+										<small class="helper">This is optional. You can add google drive link later</small>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -182,14 +217,29 @@
 				</div>
 			</div>
 
-
 		</div>
 		<script>
-			$(document).ready(function() {
+
+			var isLoading = true;
+
+			function init() {
 				$('.tabs').tabs();
 				$('select').formSelect();
 				$('.modal').modal();
+				$('.datepicker').datepicker();
+			}
+
+			$(document).ready(function() {
+				init();
 			});
+
+
+			/**
+			|--------------------------------------------------
+			| 😎New proposal
+			|--------------------------------------------------
+			*/
+
 		</script>
 	</body>
 </html>
